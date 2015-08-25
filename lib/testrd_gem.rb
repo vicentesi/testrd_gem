@@ -1,9 +1,6 @@
 require "testrd_gem/version"
+require "testrd_gem/lead"
 
 module TestrdGem
   # Your code goes here...
-
-  def hello
-    puts "Hello, World!"
-  end
 end

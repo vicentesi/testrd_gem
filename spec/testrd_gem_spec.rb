@@ -8,4 +8,8 @@ describe TestrdGem do
 #  it 'does something useful' do
 #    expect(false).to eq(true)
 #  end
+
+  it 'has a lead' do
+    expect(TestrdGem::Lead.new("","","","","","","")).not_to be nil
+  end
 end
