@@ -2,17 +2,13 @@
 
 # TestrdGem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/testrd_gem`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-```ruby
-gem 'testrd_gem'
-```
+    gem 'testrd_gem'
 
 And then execute:
 
@@ -24,7 +20,35 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Create
+Create a new lead
+
+    TestrdGem::new(name, last_name, email, company, job_title, phone, website)
+
+### Retrieve
+Retrieve a single lead, by id.
+
+    TestrdGem::show(id)
+
+Retrieve all leads
+
+    TestrdGem::all()
+
+### Delete
+Delete a user, by id.
+
+    TestrdGem::delete(id)
+
+### Count
+Return the number of registered leads.
+
+    TestrdGem::count()
+
+## Example
+
+    require 'testrd_gem'
+
+    lead = TestrdGem::new('a','b','c@email.com','foozzb,'dev','5555555','http://website.foobar.com')
 
 ## Development
 
