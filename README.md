@@ -2,6 +2,9 @@
 
 # TestrdGem
 
+This project is design as part of the Resultados Digitais Evaluation Project. It offers CRUD operations with Leads and integration with [Salesforce](http://www.salesforce.com/).
+
+Written by [Vicente Silveira Inácio](https://br.linkedin.com/pub/vicente-silveira-inácio/25/734/588)
 
 
 ## Installation
@@ -43,6 +46,11 @@ Delete a user, by id.
 Return the number of registered leads.
 
     TestrdGem::count()
+
+### Integration with Salesforce
+Lead integration with Salesforce
+
+    TestrdGem::integrate(username, password, token)
 
 ## Example
 
