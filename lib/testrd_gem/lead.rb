@@ -1,3 +1,5 @@
+require 'salesforce_bulk'
+
 module TestrdGem
   class Lead
 
@@ -48,6 +50,12 @@ module TestrdGem
       if idx_del
         @@leads.delete_at(idx_del)
       end
+    end
+
+    def self.integrate(username, password, token)
+      puts "Salesforce Integration"
+      #salesforce = SalesforceBulk::Api.new("YOUR_SALESFORCE_USERNAME", "YOUR_SALESFORCE_PASSWORD+YOUR_SALESFORCE_TOKEN")
+      salesforce = SalesforceBulk::Api.new(username, password + token)
     end
 
   end
