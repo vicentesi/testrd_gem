@@ -48,9 +48,16 @@ Return the number of registered leads.
     TestrdGem::count()
 
 ### Integration with Salesforce
+
+TestrdGem uses a external gem for connecting to Salesforce: [salesforce-bulk](https://github.com/jorgevaldivia/salesforce_bulk)
+
 Lead integration with Salesforce
 
     TestrdGem::integrate(username, password, token)
+
+* Username: Salesforce identification
+* Password: Salesforce password
+* Token: Salesforce security token
 
 ## Example
 
@@ -67,4 +74,3 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/testrd_gem.
-
