@@ -1,55 +1,41 @@
 require 'salesforce_bulk'
+require 'pg'
 
 module TestrdGem
   class Lead
 
+    @@conn = PGconn.open(:dbname => 'testrd', :user => 'testrd')
     @@index = 0
-    @@leads = []
 
     def initialize(name, last_name, email, company, job_title, phone, website)
-      lead            = {}
-      lead[:id]        = @@index
-      lead[:name]      = name
-      lead[:last_name] = last_name
-      lead[:email]     = email
-      lead[:company]   = company
-      lead[:job_title] = job_title
-      lead[:phone]     = phone
-      lead[:website]   = website
+      res = @@conn.exec("INSERT INTO leads VALUES (" + @@index.to_s + ",'" + name + "','" + last_name + "','" + email + "','" + company + "','" + job_title + "','" + phone + "','" + website + "')")
 
-      @@index     += 1
-      @@leads.push(lead)
+      @@index += 1
     end
 
     def self.count
-      @@leads.count
+      res = @@conn.exec('SELECT count(*) FROM leads')
+      res.getvalue(0,0).to_i
     end
 
     def self.all
-      @@leads
+      res = @@conn.exec('SELECT * FROM leads')
+      result = []
+      res.each do |row|
+        result.push(row)
+      end
+      result
     end
 
     def self.show(id)
-      for lead in @@leads
-        if lead[:id] == id
-          return lead
-        end
-      end
-      return nil
+      res = @@conn.exec("SELECT * FROM leads WHERE id = '" + id.to_s + "'")
+      res[0]
     end
 
     def self.delete(id)
-      idx_del = nil
-      size = @@leads.count
-      for i in 0..size-1
-        if @@leads[i][:id] == id
-          idx_del = i
-        end
-      end
-
-      if idx_del
-        @@leads.delete_at(idx_del)
-      end
+      lead_d = self.show(id)
+      res = @@conn.exec("DELETE FROM leads WHERE id = '" + id.to_s + "'")
+      lead_d
     end
 
     def self.integrate(username, password, token)
