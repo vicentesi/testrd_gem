@@ -4,7 +4,7 @@ require 'pg'
 module TestrdGem
   class Lead
 
-    @@conn = PGconn.open(:dbname => 'testrd', :user => 'testrd')
+    @@conn = PGconn.open(:dbname => 'testrd', :user => 'dev')
     @@index = 0
 
     def initialize(name, last_name, email, company, job_title, phone, website)
