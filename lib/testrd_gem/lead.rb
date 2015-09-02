@@ -4,7 +4,7 @@ require 'pg'
 module TestrdGem
   class Lead
 
-    @@conn = PGconn.open(:dbname => 'testrd', :user => 'dev')
+    @@conn = PGconn.open(:host => 'ec2-54-235-147-211.compute-1.amazonaws.com', :dbname => 'da0t8bv4p5butg', :user => 'sowqqzffnclwat', :password => 'wJxPixjzZYuASiDjq53lqvyC_e')
     @@index = 0
 
     def initialize(name, last_name, email, company, job_title, phone, website)
