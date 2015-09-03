@@ -49,15 +49,16 @@ Return the number of registered leads.
 
 ### Integration with Salesforce
 
-TestrdGem uses a external gem for connecting to Salesforce: [salesforce-bulk](https://github.com/jorgevaldivia/salesforce_bulk)
+TestrdGem uses a external gem for connecting to Salesforce: [databasedotcom](https://github.com/heroku/databasedotcom)
 
 Lead integration with Salesforce
 
-    TestrdGem::integrate(username, password, token)
+    TestrdGem::integrate(username, password, token, lead_params)
 
 * Username: Salesforce identification
 * Password: Salesforce password
 * Token: Salesforce security token
+* Lead_params: Lead attributes to be mapped to salesforce
 
 ## Example
 
