@@ -43,7 +43,7 @@ describe TestrdGem do
     end
 
     it 'should return exception (invalid login)' do
-      expect{TestrdGem::LeadStorage.integrate("","","")}.to raise_error(RuntimeError)
+      expect{TestrdGem::LeadStorage.integrate("","","",{})}.to raise_error
     end
 
   end
